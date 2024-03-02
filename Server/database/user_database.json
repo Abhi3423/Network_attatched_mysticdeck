@@ -1,0 +1,7 @@
+{
+    "username": {
+        "unique_id": "Google_unique_id",
+        "user_name": "name_provided_by_user",
+        "user_email": "email_provided_by_user"
+    }
+}

@@ -1,0 +1,30 @@
+{
+    "room_id": {
+        "theme_selected": "",
+        "topic_selected": "",
+        "chance": "",
+        "scores": {
+            "username": 25
+        },
+        "current_values": {
+            "parameter_name": "",
+            "parameter_values": {
+                "username": 232
+            }
+        }
+    },
+    "21HrCb": {
+        "chance": "",
+        "current_values": {
+            "parameter_name": "MPI",
+            "parameter_values": {
+                "abhishek": 19
+            }
+        },
+        "scores": {
+            "abhishek": 15
+        },
+        "theme_selected": "Geography",
+        "topic_selected": "states and cities"
+    }
+}
