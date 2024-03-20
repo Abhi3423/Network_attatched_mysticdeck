@@ -4,6 +4,7 @@ from flask_session import Session
 from flask_cors import CORS, cross_origin
 import json
 import re
+import random
 
 
 app = Flask(__name__,template_folder='templates')
@@ -51,12 +52,12 @@ def score_update():
     room_id = request.form['room_id']
     # Load data from the JSON file
     with open('database/game.json', 'r') as f:
-        rooms_data = json.load(f)
+        game_data = json.load(f)
 
     # Assuming you have room_id, username, and score defined
-    if room_id in rooms_data:
+    if room_id in game_data:
         # Access the parameter_values for the specific room
-        parameter_values = rooms_data[room_id]['current_values']['parameter_values']
+        parameter_values = game_data[room_id]['current_values']['parameter_values']
         
         # Find the user with the highest score
         highest_score = max(parameter_values.values())
@@ -67,14 +68,15 @@ def score_update():
             if score == highest_score:
                 winner = user
             print(winner)
+            game_data[room_id]['allscoreadded'] = False
         # Add 5 to the score of the winner
-        rooms_data[room_id]['scores'][winner] += 5
+        game_data[room_id]['scores'][winner] += 5
         
     # Save the updated data back to the JSON file
     with open('database/game.json', 'w') as f:
-        json.dump(rooms_data, f, indent=4)
+        json.dump(game_data, f, indent=4)
         
-    return {'scores':rooms_data[room_id]['scores'],'winner':winner}
+    return {'scores':game_data[room_id]['scores'],'winner':winner}
 
 
 @socketio.on('connect',namespace='/create_room')
@@ -97,21 +99,22 @@ def handle_join_room(data):
          # Initialize the 'users' list if it's not already present
         if 'users' not in rooms_data[room_id]:
            rooms_data[room_id]['users'] = []
-    
-        # Add the user to the room
-        rooms_data[room_id]['users'].append(username)
-        join_room(room_id)
-        # session.sessionid['username'] = username
-        # # Create a session for the user
-        # session['username'] = username
         
-        # Save the updated rooms_data back to the JSON file
-        with open('database/rooms.json', 'w') as f:
-          json.dump(rooms_data, f, indent=4)
+        if username not in rooms_data[room_id]['users']:
+           # Add the user to the room
+           rooms_data[room_id]['users'].append(username)
+           join_room(room_id)
+           # session.sessionid['username'] = username
+           # # Create a session for the user
+           # session['username'] = username
+        
+           # Save the updated rooms_data back to the JSON file
+           with open('database/rooms.json', 'w') as f:
+             json.dump(rooms_data, f, indent=4)
            
-        # Emit a message to the room
-        message = f"{username} has joined the room."
-        emit('status', {'users': rooms_data[room_id]['users'],message:message}, room=room_id)
+           # Emit a message to the room
+           message = f"{username} has joined the room."
+           emit('status', {'users': rooms_data[room_id]['users'],message:message}, room=room_id)
     else:
         print('room does not exist')
         # Emit a message to the room
@@ -150,7 +153,7 @@ def handle_leave_room(data):
             json.dump(game_data, f, indent=4)
 
         message = f"{username} has left the room."
-        emit('status', {'message': message}, room=room_id)
+        emit('leave', {'message': message}, room=room_id)
         
         
 @socketio.on('play_call', namespace='/create_room')
@@ -161,34 +164,44 @@ def play_call(message):
 
 @socketio.on('members_play_call', namespace='/create_room')
 def members_play_call(message):
+    print('members_play_call')
     room_id = message['room_id']
     score = message['score']
     username = message['username']
-    with open('database/game.json', 'r') as f:
-        rooms_data = json.load(f)
+    with open('database/game.json', 'r') as f_game, open('database/rooms.json', 'r') as f_room:
+        game_data = json.load(f_game)
+        room_data = json.load(f_room)
 
-    if room_id in rooms_data:
-        # Access the scores dictionary for the specific room
-        scores = rooms_data[room_id]['scores']
-
-        # Check if the username is already present in the scores dictionary
+    if room_id in game_data:
+        scores = game_data[room_id]['scores']
+        print(scores)
         if username not in scores:
-          # If the username is not present, append it with the corresponding score
-          scores[username] = score
+            scores[username] = score
 
-        rooms_data[room_id]['current_values']['parameter_name'] = message['parameter_name']
+        game_data[room_id]['current_values']['parameter_name'] = message['parameter_name']
         
-        # Extract only the numeric portion from parameter_value
-        numeric_value = re.sub(r'\D', '', message['parameter_value'])
-        
-        # Convert the numeric value to an integer (assuming it represents an integer)
-        numeric_value = int(numeric_value)
-        
-        rooms_data[room_id]['current_values']['parameter_values'][message['username']] = numeric_value
+        numeric_value = float(message['parameter_value'])
+        print(numeric_value)
+        game_data[room_id]['current_values']['parameter_values'][message['username']] = numeric_value
 
- 
-    with open('database/game.json', 'w') as f:
-        json.dump(rooms_data, f, indent=4)
+        # Check if the number of users in room.json matches the number of users in game.json
+        if room_id in room_data:
+            room_users_count = len(room_data[room_id]['users'])
+            game_users_count = len(game_data[room_id]['scores'])
+
+            # Check if the counts match
+            if room_users_count == game_users_count:
+                game_data[room_id]['allscoreadded'] = True
+            else:
+                game_data[room_id]['allscoreadded'] = False
+
+        with open('database/game.json', 'w') as f_game:
+            json.dump(game_data, f_game)
+
+        # Emit 'allscoreadded' event if the flag is set to true
+        if game_data[room_id].get('allscoreadded', False):
+            game_data[room_id]['allscoreadded'] = False
+            emit('allscoreadded', room=room_id)
 
 @socketio.on('theme_selection',namespace='/create_room')
 def theme_selection(data):
@@ -197,13 +210,38 @@ def theme_selection(data):
     room_id = data['room_id']
     print(themeselected)
     print(topicselected)
-    # room = session.get('room_id')
+    userscount = 0
+    with open('database/rooms.json', 'r') as a:
+        room_data = json.load(a)
+
+    if room_id in room_data:
+        userscount = len(room_data[room_id]['users'])
+
+    with open('database/everydata.json', 'r') as b:
+        every_data = json.load(b)
+    cardsdata = every_data[themeselected][topicselected]['Cards']
+
     with open('database/game.json', 'r') as f:
         game_data = json.load(f)
-    game_data[room_id] = {'chance': "",'current_values':{'parameter_name':"",'parameter_values':{}}, 'scores': {},'theme_selected':themeselected,'topic_selected':topicselected}
+
+    # Divide the keys into equal parts based on the number of keys
+    keys = sorted(list(cardsdata.keys()))  # Sort the keys
+    partition_size = len(keys) // userscount
+    partitions = [keys[i:i + partition_size] for i in range(0, len(keys), partition_size)]
+
+    # Create a new JSON object containing the divided key-value pairs for each user
+    user_data = {}
+    print(partitions)
+    for i, user in enumerate(room_data[room_id]['users']):
+        user_data[user] = {themeselected: {topicselected: {'Cards': {str(idx+1): cardsdata[k] for idx, k in enumerate(partitions[i])},'Startcolor':every_data[themeselected][topicselected]['Startcolor'],'Endcolor':every_data[themeselected][topicselected]['Endcolor']}}}
+        print(len(user_data[user]))
+        
+    game_data[room_id] = {'chance': "",'current_values':{'parameter_name':"",'parameter_values':{}}, 'scores': {},'allscoreadded': False,'theme_selected':themeselected,'topic_selected':topicselected}
+    print(user_data)
     with open('database/game.json','w') as y:
         json.dump(game_data, y)
-    emit('theme_sent',{'theme_selected':themeselected,'topic_selected':topicselected},room=room_id)
+
+    emit('theme_sent',{'users_data':user_data,'theme_selected':themeselected,'topic_selected':topicselected},room=room_id)
 
 
 
@@ -239,4 +277,4 @@ def left(message):
 
 if __name__ == '__main__':
 
-    socketio.run(app, port=8000)
+    socketio.run(app,host='127.0.0.1', port=8000,debug=True)
