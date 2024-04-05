@@ -36,7 +36,7 @@ def create_room():
         session['room_id'] = room_id
         session['creator_id'] = creator_id
         print(session)
-        rooms_data[room_id] = {'creator_id': [creator_id], 'users': []}
+        rooms_data[room_id] = {'creator_id': [creator_id], 'users': [], 'game_started': False}
         with open('database/rooms.json','w') as y:
             json.dump(rooms_data, y)
         return {"session":session,"room_id": session.get('room_id')}
@@ -100,26 +100,32 @@ def handle_join_room(data):
         if 'users' not in rooms_data[room_id]:
            rooms_data[room_id]['users'] = []
         
-        if username not in rooms_data[room_id]['users']:
-           # Add the user to the room
-           rooms_data[room_id]['users'].append(username)
-           join_room(room_id)
-           # session.sessionid['username'] = username
-           # # Create a session for the user
-           # session['username'] = username
+        if rooms_data[room_id]['game_started'] == False:
+           if username not in rooms_data[room_id]['users']: 
+               # Add the user to the room
+               rooms_data[room_id]['users'].append(username)
+               join_room(room_id)
+               # session.sessionid['username'] = username
+               # # Create a session for the user
+               # session['username'] = username
         
-           # Save the updated rooms_data back to the JSON file
-           with open('database/rooms.json', 'w') as f:
-             json.dump(rooms_data, f, indent=4)
+               # Save the updated rooms_data back to the JSON file
+               with open('database/rooms.json', 'w') as f:
+                 json.dump(rooms_data, f, indent=4)
            
-           # Emit a message to the room
-           message = f"{username} has joined the room."
-           emit('status', {'users': rooms_data[room_id]['users'],message:message}, room=room_id)
+               # Emit a message to the room
+               message = f"{username} has joined the room"
+               print(message)
+               emit('status', {'users': rooms_data[room_id]['users'],'message': message, 'status': True}, room=room_id)
+        else:
+            message = "Invalid code"
+            print(message)
+            emit('status', {'message': message, 'status': False})
     else:
         print('room does not exist')
         # Emit a message to the room
-        message = "Room does not exist."
-        emit('status', {message:message})
+        message = "Room does not exist"
+        emit('status', {'message': message, 'status': False})
 
 
 @socketio.on('leave_room', namespace='/create_room')
@@ -277,4 +283,4 @@ def left(message):
 
 if __name__ == '__main__':
 
-    socketio.run(app,host='127.0.0.1', port=8000,debug=True)
+    socketio.run(app,host='127.0.0.1', port=8080,debug=True)

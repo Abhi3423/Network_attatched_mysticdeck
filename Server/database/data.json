@@ -1,0 +1,413 @@
+{
+    "Geography": {
+      "states and cities": {
+        "Cards": {
+          "1": {
+            "name": "Andaman and Nicobar Islands",
+            "image": "maharashtra",
+            "Population": 380581,
+            "GDP( (\u20b9 millions))": 103705.2,
+            "Area(Km^2)": 8249,
+            "Sex ratio": 876,
+            "Literacy Rate": 86.27,
+            " Human Development Index": 0.63
+          },
+          "2": {
+            "name": "Andhra Pradesh",
+            "image": "maharashtra",
+            "Population": "49,577,103[b]",
+            "GDP( (\u20b9 millions))": 11338365,
+            "Pollution(Aqi-in)": 110,
+            "Area(Km^2)": 162975,
+            "Sex ratio": 993,
+            "Literacy Rate": 66.9,
+            " Human Development Index": 0.665
+          },
+          "3": {
+            "name": "Arunachal Pradesh",
+            "image": "maharashtra",
+            "Population": 1383727,
+            "GDP( (\u20b9 millions))": 351235.4,
+            "Pollution(Aqi-in)": 28,
+            "Area(Km^2)": 83743,
+            "Sex ratio": 938,
+            "Literacy Rate": 66.95,
+            " Human Development Index": 0.597
+          },
+          "4": {
+            "name": "Assam",
+            "image": "maharashtra",
+            "Population": 31205576,
+            "GDP( (\u20b9 millions))": 4126118.7,
+            "Pollution(Aqi-in)": 39,
+            "Area(Km^2)": 78438,
+            "Sex ratio": 958,
+            "Literacy Rate": 85.9,
+            " Human Development Index": 0.571
+          },
+          "5": {
+            "name": "Bihar",
+            "image": "maharashtra",
+            "Population": 104099452,
+            "GDP( (\u20b9 millions))": 6503024.3,
+            "Pollution(Aqi-in)": 214,
+            "Area(Km^2)": 94163,
+            "Sex ratio": 918,
+            "Literacy Rate": 70.9,
+            " Human Development Index": 0.744
+          },
+          "6": {
+            "name": "Chandigarh",
+            "image": "maharashtra",
+            "Population": 1055450,
+            "GDP( (\u20b9 millions))": 456352.6,
+            "Pollution(Aqi-in)": 268,
+            "Area(Km^2)": 114,
+            "Sex ratio": 818,
+            "Literacy Rate": 77.3,
+            " Human Development Index": 0.605
+          },
+          "7": {
+            "name": "Chhattisgarh",
+            "image": "maharashtra",
+            "Population": 25545198,
+            "GDP( (\u20b9 millions))": 4064158.2,
+            "Pollution(Aqi-in)": 129,
+            "Area(Km^2)": 135192,
+            "Sex ratio": 991,
+            "Literacy Rate": 86.43,
+            " Human Development Index": 0.62
+          },
+          "8": {
+            "name": "Dadra and Nagar Haveli and Daman and Diu",
+            "image": "maharashtra",
+            "Population": 585764,
+            "Pollution(Aqi-in)": 207,
+            "Area(Km^2)": 603,
+            "Sex ratio": 711,
+            "Literacy Rate": 77.65,
+            " Human Development Index": 0.661
+          },
+          "9": {
+            "name": "Delhi",
+            "image": "maharashtra",
+            "Population": 16787941,
+            "GDP( (\u20b9 millions))": 9046420.4,
+            "Pollution(Aqi-in)": 407,
+            "Area(Km^2)": 1484,
+            "Sex ratio": 868,
+            "Literacy Rate": 87.07,
+            " Human Development Index": 0.73
+          },
+          "10": {
+            "name": "Goa",
+            "image": "maharashtra",
+            "Population": 1458545,
+            "GDP( (\u20b9 millions))": 826037,
+            "Pollution(Aqi-in)": 64,
+            "Area(Km^2)": 3702,
+            "Sex ratio": 973,
+            "Literacy Rate": 88.7,
+            " Human Development Index": 0.751
+          },
+          "11": {
+            "name": "Gujarat",
+            "image": "maharashtra",
+            "Population": 60439692,
+            "GDP( (\u20b9 millions))": 19770664.6,
+            "Pollution(Aqi-in)": 117,
+            "Area(Km^2)": 196024,
+            "Sex ratio": 919,
+            "Literacy Rate": 87.4,
+            " Human Development Index": 0.638
+          },
+          "12": {
+            "name": "Haryana",
+            "image": "maharashtra",
+            "Population": 25351462,
+            "GDP( (\u20b9 millions))": 8706645.3,
+            "Pollution(Aqi-in)": 370,
+            "Area(Km^2)": 44212,
+            "Sex ratio": 879,
+            "Literacy Rate": 82.4,
+            " Human Development Index": 0.691
+          },
+          "13": {
+            "name": "Himachal Pradesh",
+            "image": "maharashtra",
+            "Population": 6864602,
+            "GDP( (\u20b9 millions))": 1762694.7,
+            "Pollution(Aqi-in)": 124,
+            "Area(Km^2)": 55673,
+            "Sex ratio": 972,
+            "Literacy Rate": 80.4,
+            " Human Development Index": 0.703
+          },
+          "14": {
+            "name": "Jammu and Kashmir",
+            "image": "maharashtra",
+            "Population": 12267032,
+            "GDP( (\u20b9 millions))": 1999174.2,
+            "Pollution(Aqi-in)": 94,
+            "Area(Km^2)": "42,241\n(55,538)",
+            "Sex ratio": 890,
+            "Literacy Rate": 86.6,
+            " Human Development Index": 0.699
+          },
+          "15": {
+            "name": "Jharkhand",
+            "image": "maharashtra",
+            "Population": 32988134,
+            "GDP( (\u20b9 millions))": 3588625.9,
+            "Pollution(Aqi-in)": 107,
+            "Area(Km^2)": 79716,
+            "Sex ratio": 948,
+            "Literacy Rate": 77.3,
+            " Human Development Index": 0.589
+          },
+          "16": {
+            "name": "Karnataka",
+            "image": "maharashtra",
+            "Population": 61095297,
+            "GDP( (\u20b9 millions))": 19627254.2,
+            "Pollution(Aqi-in)": 53,
+            "Area(Km^2)": 191791,
+            "Sex ratio": 973,
+            "Literacy Rate": 74.3,
+            " Human Development Index": 0.667
+          },
+          "17": {
+            "name": "Kerala",
+            "image": "maharashtra",
+            "Population": 33406061,
+            "GDP( (\u20b9 millions))": 9324699.6,
+            "Pollution(Aqi-in)": 51,
+            "Area(Km^2)": 38863,
+            "Sex ratio": 1084,
+            "Literacy Rate": 77.2,
+            " Human Development Index": 0.752
+          },
+          "18": {
+            "name": "Ladakh",
+            "image": "maharashtra",
+            "Population": 274000,
+            "Area(Km^2)": "59,146\n(166,698)",
+            "Sex ratio": 853,
+            "Literacy Rate": 96.2
+          },
+          "19": {
+            "name": "Lakshadweep",
+            "image": "maharashtra",
+            "Population": 64473,
+            "Area(Km^2)": 32,
+            "Sex ratio": 946,
+            "Literacy Rate": 92.28,
+            " Human Development Index": 0.715
+          },
+          "20": {
+            "name": "Madhya Pradesh",
+            "image": "maharashtra",
+            "Population": 72626809,
+            "GDP( (\u20b9 millions))": 11361371.9,
+            "Pollution(Aqi-in)": 134,
+            "Area(Km^2)": 308252,
+            "Sex ratio": 931,
+            "Literacy Rate": 73.7,
+            " Human Development Index": 0.596
+          },
+          "21": {
+            "name": "Maharashtra",
+            "image": "maharashtra",
+            "Population": 112374333,
+            "GDP( (\u20b9 millions))": 31080218.7,
+            "Pollution(Aqi-in)": 186,
+            "Area(Km^2)": 307713,
+            "Sex ratio": 929,
+            "Literacy Rate": 84.8,
+            " Human Development Index": 0.688
+          },
+          "22": {
+            "name": "Manipur",
+            "image": "maharashtra",
+            "Population": 2570390,
+            "GDP( (\u20b9 millions))": 365944.7,
+            "Pollution(Aqi-in)": 25,
+            "Area(Km^2)": 22327,
+            "Sex ratio": 992,
+            "Literacy Rate": 79.85,
+            " Human Development Index": 0.678
+          },
+          "23": {
+            "name": "Meghalaya",
+            "image": "maharashtra",
+            "Population": 2966889,
+            "GDP( (\u20b9 millions))": 387847,
+            "Pollution(Aqi-in)": 32,
+            "Area(Km^2)": 22429,
+            "Sex ratio": 989,
+            "Literacy Rate": 75.48,
+            " Human Development Index": 0.643
+          },
+          "24": {
+            "name": "Mizoram",
+            "image": "maharashtra",
+            "Population": 1097206,
+            "GDP( (\u20b9 millions))": 278235,
+            "Pollution(Aqi-in)": 24,
+            "Area(Km^2)": 21081,
+            "Sex ratio": 976,
+            "Literacy Rate": 91.58,
+            " Human Development Index": 0.688
+          },
+          "25": {
+            "name": "Nagaland",
+            "image": "maharashtra",
+            "Population": 1978502,
+            "GDP( (\u20b9 millions))": 319125.4,
+            "Pollution(Aqi-in)": 26,
+            "Area(Km^2)": 16579,
+            "Sex ratio": 931,
+            "Literacy Rate": 80.11,
+            " Human Development Index": 0.67
+          },
+          "26": {
+            "name": "Odisha",
+            "image": "maharashtra",
+            "Population": 41974219,
+            "GDP( (\u20b9 millions))": 6708812.3,
+            "Pollution(Aqi-in)": 261,
+            "Area(Km^2)": 155707,
+            "Sex ratio": 979,
+            "Literacy Rate": 77.3,
+            " Human Development Index": 0.597
+          },
+          "27": {
+            "name": "Puducherry",
+            "image": "maharashtra",
+            "Population": 1247953,
+            "GDP( (\u20b9 millions))": 442378.6,
+            "Pollution(Aqi-in)": 82,
+            "Area(Km^2)": 479,
+            "Sex ratio": 1037,
+            "Literacy Rate": 86.55,
+            " Human Development Index": 0.726
+          },
+          "28": {
+            "name": "Punjab",
+            "image": "maharashtra",
+            "Population": 27743338,
+            "GDP( (\u20b9 millions))": 6142267.6,
+            "Pollution(Aqi-in)": 259,
+            "Area(Km^2)": 50362,
+            "Sex ratio": 895,
+            "Literacy Rate": 83.7,
+            " Human Development Index": 0.694
+          },
+          "29": {
+            "name": "Rajasthan",
+            "image": "maharashtra",
+            "Population": 68548437,
+            "GDP( (\u20b9 millions))": 12181934.5,
+            "Pollution(Aqi-in)": 151,
+            "Area(Km^2)": 342239,
+            "Sex ratio": 928,
+            "Literacy Rate": 69.7,
+            " Human Development Index": 0.638
+          },
+          "30": {
+            "name": "Sikkim",
+            "image": "maharashtra",
+            "Population": 610577,
+            "GDP( (\u20b9 millions))": 375574,
+            "Pollution(Aqi-in)": 46,
+            "Area(Km^2)": 7096,
+            "Sex ratio": 890,
+            "Literacy Rate": 82.2,
+            " Human Development Index": 0.702
+          },
+          "31": {
+            "name": "Tamil Nadu",
+            "image": "maharashtra",
+            "Population": 72147030,
+            "GDP( (\u20b9 millions))": 20712861.6,
+            "Pollution(Aqi-in)": 68,
+            "Area(Km^2)": 130058,
+            "Sex ratio": 996,
+            "Literacy Rate": 82.9,
+            " Human Development Index": 0.686
+          },
+          "32": {
+            "name": "Telangana",
+            "image": "maharashtra",
+            "Population": 35003674,
+            "GDP( (\u20b9 millions))": 11289072.4,
+            "Pollution(Aqi-in)": 97,
+            "Area(Km^2)": 112077,
+            "Sex ratio": 988,
+            "Literacy Rate": 72.8,
+            " Human Development Index": 0.647
+          },
+          "33": {
+            "name": "Tripura",
+            "image": "maharashtra",
+            "Population": 3673917,
+            "GDP( (\u20b9 millions))": 625504.4,
+            "Pollution(Aqi-in)": 280,
+            "Area(Km^2)": 10491,
+            "Sex ratio": 960,
+            "Literacy Rate": 87.75,
+            " Human Development Index": 0.629
+          },
+          "34": {
+            "name": "Uttar Pradesh",
+            "image": "maharashtra",
+            "Population": 199812341,
+            "GDP( (\u20b9 millions))": 19745315.5,
+            "Pollution(Aqi-in)": 292,
+            "Area(Km^2)": 240928,
+            "Sex ratio": 912,
+            "Literacy Rate": 87.6,
+            " Human Development Index": 0.592
+          },
+          "35": {
+            "name": "Uttarakhand",
+            "image": "maharashtra",
+            "Population": 10086292,
+            "GDP( (\u20b9 millions))": 2721594.8,
+            "Pollution(Aqi-in)": 125,
+            "Area(Km^2)": 53483,
+            "Sex ratio": 963,
+            "Literacy Rate": 73,
+            " Human Development Index": 0.672
+          },
+          "36": {
+            "name": "West Bengal",
+            "image": "maharashtra",
+            "Population": 91276115,
+            "GDP( (\u20b9 millions))": 13639258.6,
+            "Pollution(Aqi-in)": 224,
+            "Area(Km^2)": 88752,
+            "Sex ratio": 953,
+            "Literacy Rate": 80.5,
+            " Human Development Index": 0.624
+          }
+        },
+        "Startcolor": "#BBB3AC",
+        "Endcolor": "#000000"
+      },
+      "agriculture": {},
+      "rivers": {},
+      "crime and safety": {}
+    },
+    "history": {
+      "agriculture": {},
+      "constitution": {},
+      "medieval": {},
+      "heritage": {}
+    }
+  }
+  
+  
+  
+  
+  
