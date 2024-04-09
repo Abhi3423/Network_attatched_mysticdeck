@@ -1,1 +1,17 @@
-{"room_id": {"chance": "", "current_values": {"parameter_name": "", "parameter_values": {"username": 232}}, "scores": {"username": 25}, "allscoreadded": false, "theme_selected": "", "topic_selected": ""}, "gekLxv": {"chance": "", "current_values": {"parameter_name": "", "parameter_values": {}}, "scores": {}, "allscoreadded": false, "theme_selected": "Geography", "topic_selected": "states and cities"}}
+{
+    "room_id": {
+        "chance": "",
+        "current_values": {
+            "parameter_name": "",
+            "parameter_values": {
+                "username": 232
+            }
+        },
+        "scores": {
+            "username": 25
+        },
+        "allscoreadded": false,
+        "theme_selected": "",
+        "topic_selected": ""
+    }
+}

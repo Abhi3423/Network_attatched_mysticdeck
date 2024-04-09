@@ -222,6 +222,7 @@ def theme_selection(data):
 
     if room_id in room_data:
         userscount = len(room_data[room_id]['users'])
+        room_data[room_id]['game_started'] = True
 
     with open('database/everydata.json', 'r') as b:
         every_data = json.load(b)
@@ -229,6 +230,9 @@ def theme_selection(data):
 
     with open('database/game.json', 'r') as f:
         game_data = json.load(f)
+
+    with open('database/rooms.json', 'w') as f:
+        json.dump(room_data, f, indent=4)
 
     # Divide the keys into equal parts based on the number of keys
     keys = sorted(list(cardsdata.keys()))  # Sort the keys
@@ -240,7 +244,7 @@ def theme_selection(data):
     print(partitions)
     for i, user in enumerate(room_data[room_id]['users']):
         user_data[user] = {themeselected: {topicselected: {'Cards': {str(idx+1): cardsdata[k] for idx, k in enumerate(partitions[i])},'Startcolor':every_data[themeselected][topicselected]['Startcolor'],'Endcolor':every_data[themeselected][topicselected]['Endcolor']}}}
-        print(len(user_data[user]))
+        # print(len(user_data[user]))
         
     game_data[room_id] = {'chance': "",'current_values':{'parameter_name':"",'parameter_values':{}}, 'scores': {},'allscoreadded': False,'theme_selected':themeselected,'topic_selected':topicselected}
     print(user_data)
